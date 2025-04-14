@@ -1,12 +1,19 @@
 import { MouseEvent, useState } from "react";
-const ListGroup = () => {
-  let items = [
-    "Cras justo odio",
-    "Dapibus ac facilisis in",
-    "Morbi leo risus",
-    "Porta ac consectetur ac",
-    "Vestibulum at eros",
-  ];
+
+interface Props {
+  items: string[];
+  heading: string;
+}
+
+
+const ListGroup = ({ items, heading }: Props) => {
+  // let items = [
+  //   "Cras justo odio",
+  //   "Dapibus ac facilisis in",
+  //   "Morbi leo risus",
+  //   "Porta ac consectetur ac",
+  //   "Vestibulum at eros",
+  // ];
   // items = [];
 
   // Event handler
@@ -18,7 +25,7 @@ const ListGroup = () => {
 
   return (
     <>
-      <h2>List of Items</h2>
+      <h2>{heading}</h2>
       {items.length === 0 && <p>No item Found</p>}
 
       <ul className="list-group">
