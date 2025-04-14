@@ -1,4 +1,4 @@
-// import Alert from "./Alert";
+import Alert from "./components/Alert";
 // import Message from "./Message";
 import ListGroup from "./components/ListGroup";
 function App() {
@@ -15,6 +15,9 @@ function App() {
   };
   return (
     <div>
+      <Alert>
+        <strong>A simple primary alert—check it out!</strong>
+      </Alert>
       <ListGroup
         items={items}
         heading="List of Items"
