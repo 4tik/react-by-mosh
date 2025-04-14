@@ -1,3 +1,4 @@
+import { MouseEvent } from "react";
 const ListGroup = () => {
   let items = [
     "Cras justo odio",
@@ -7,14 +8,19 @@ const ListGroup = () => {
     "Vestibulum at eros",
   ];
   // items = [];
+
+  // Event handler
+  const handleClick = (event: MouseEvent) => {
+    console.log("Item clicked : ", event);
+  };
   return (
     <>
       <h2>List of Items</h2>
       {items.length === 0 && <p>No item Found</p>}
 
       <ul className="list-group">
-        {items.map((item) => (
-          <li key={item} className="list-group-item">
+        {items.map((item, index) => (
+          <li key={item} className="list-group-item" onClick={handleClick}>
             {item}
           </li>
         ))}
