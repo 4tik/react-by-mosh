@@ -1,9 +1,10 @@
-import Alert from "./Alert";
-import Message from "./Message";
+// import Alert from "./Alert";
+// import Message from "./Message";
+import ListGroup from "./components/ListGroup";
 function App() {
   return (
     <div>
-      <Alert />
+      <ListGroup />
     </div>
   );
 }
