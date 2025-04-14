@@ -3,10 +3,10 @@ import { MouseEvent, useState } from "react";
 interface Props {
   items: string[];
   heading: string;
+  onSelectItem: (item: string) => void;
 }
 
-
-const ListGroup = ({ items, heading }: Props) => {
+const ListGroup = ({ items, heading, onSelectItem }: Props) => {
   // let items = [
   //   "Cras justo odio",
   //   "Dapibus ac facilisis in",
@@ -37,6 +37,7 @@ const ListGroup = ({ items, heading }: Props) => {
             }`}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}

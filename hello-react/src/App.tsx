@@ -9,9 +9,17 @@ function App() {
     "Porta ac consectetur ac",
     "Vestibulum at eros",
   ];
+
+  const handelOnSelectItem = (item: string) => {
+    console.log("item :", item);
+  };
   return (
     <div>
-      <ListGroup items={items} heading="List of Items" />
+      <ListGroup
+        items={items}
+        heading="List of Items"
+        onSelectItem={handelOnSelectItem}
+      />
     </div>
   );
 }
