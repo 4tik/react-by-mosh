@@ -19,9 +19,9 @@ function App() {
   };
   return (
     <div>
-      <Alert onClose={() => console.log("click")}>
+      {/* <Alert onClose={() => console.log("click")}>
         <strong>A simple primary alert—check it out!</strong>
-      </Alert>
+      </Alert> */}
       <ListGroup
         items={items}
         heading="List of Items"
