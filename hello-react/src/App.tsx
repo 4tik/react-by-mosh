@@ -4,6 +4,9 @@ import Button from "./components/Button";
 import Like from "./components/Like";
 // import Message from "./Message";
 import ListGroup from "./components/ListGroup";
+import GameObject from "./components/GameObject";
+import PizzaObject from "./components/PizzaObject";
+import ShoppingCart from "./components/ShoppingCart";
 function App() {
   let items = [
     "Cras justo odio",
@@ -38,6 +41,18 @@ function App() {
         Custom Button
       </Button>
       <Like onClick={() => console.log("clicked")}></Like>
+
+      <div className="bg-warning my-2 p-2">
+        <GameObject></GameObject>
+      </div>
+
+      <div className="bg-warning my-2 p-2">
+        <PizzaObject></PizzaObject>
+      </div>
+
+      <div className="bg-warning my-2 p-2">
+        <ShoppingCart />
+      </div>
     </div>
   );
 }
