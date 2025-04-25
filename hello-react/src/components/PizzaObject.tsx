@@ -11,8 +11,10 @@ const PizzaObject = () => {
   return (
     <div>
       <div>
-        <p>{pizza.name}</p>
-        <p>{pizza.toppings.join(" | ")}</p>
+        <ul>
+          <li>{pizza.name}</li>
+          <li>{pizza.toppings.join(" | ")}</li>
+        </ul>
       </div>
       <button onClick={handleClick} className="btn btn-danger">
         CLICK

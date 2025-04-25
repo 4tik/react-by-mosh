@@ -4,6 +4,7 @@ interface Props {
   children: ReactNode;
   onClose: () => void;
 }
+
 const Alert = ({ children, onClose }: Props) => {
   return (
     <div className="alert alert-warning alert-dismissible">
