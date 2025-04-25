@@ -7,6 +7,8 @@ import ListGroup from "./components/ListGroup";
 import GameObject from "./components/GameObject";
 import PizzaObject from "./components/PizzaObject";
 import ShoppingCart from "./components/ShoppingCart";
+import NavBar from "./components/shoping/NavBar";
+import Cart from "./components/shoping/cart";
 function App() {
   let items = [
     "Cras justo odio",
@@ -17,6 +19,7 @@ function App() {
   ];
 
   const [isShowAlert, setIsShowAlert] = useState(false);
+  const [cartItems, setCartItems] = useState(["item1", "item2", "item3"]);
 
   const handelOnSelectItem = (item: string) => {
     console.log("item :", item);
@@ -52,6 +55,11 @@ function App() {
 
       <div className="bg-warning my-2 p-2">
         <ShoppingCart />
+      </div>
+
+      <div className="bg-info my-2 p-2">
+        <NavBar cartItemsCount={cartItems.length} />
+        <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
       </div>
     </div>
   );
