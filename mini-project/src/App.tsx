@@ -3,8 +3,10 @@ import reactLogo from "./assets/react.svg";
 import Form from "./components/Form";
 import ExpenseList from "./expence-tracker/components/ExpenseList";
 import ExpenseFilter from "./expence-tracker/components/ExpenseFilter";
+import ExpenseForm from "./expence-tracker/components/ExpenseForm";
+
 function App() {
-  const [expence, setExpence] = useState([
+  const [expenses, setExpenses] = useState([
     { id: 1, description: "Milk and Bread", amount: 20, category: "Groceries" },
     {
       id: 2,
@@ -27,25 +29,37 @@ function App() {
       category: "Entertainment",
     },
   ]);
-  const [visualExpence, setVaisualExpence] = useState(expence);
+  const [visualExpence, setVaisualExpence] = useState(expenses);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const filteredExpenses = selectedCategory
+    ? expenses.filter((e) => e.category === selectedCategory)
+    : expenses;
 
   const handleDelete = (id: number) => {
-    setExpence((ex) => ex.filter((e) => e.id !== id));
+    setExpenses(expenses.filter((e) => e.id !== id));
   };
 
   const onFilter = (category: string) => {
     setVaisualExpence(
-      category ? expence.filter((e) => e.category == category) : expence
+      category ? expenses.filter((e) => e.category == category) : expenses
     );
+  };
+
+  const addExpense = (expense: any) => {
+    setExpenses((prev) => [...prev, { ...expense, id: prev.length + 1 }]);
   };
 
   return (
     <div>
       {/* <Form /> */}
-      <div className="mb-2">
-        <ExpenseFilter onSelectCategory={(category) => onFilter(category)} />
+      <div className="mb-5">
+        <ExpenseForm onSubmit={addExpense} />
       </div>
-      <ExpenseList expenses={visualExpence} onDelete={handleDelete} />
+      <div className="mb-2">
+        <ExpenseFilter onSelectCategory={setSelectedCategory} />
+      </div>
+      <ExpenseList expenses={filteredExpenses} onDelete={handleDelete} />
     </div>
   );
 }
